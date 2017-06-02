@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Created by eheitmuller on 4/26/17.
@@ -50,15 +52,11 @@ public class TwelveDays {
     }
 
     public String verses(int start, int end) {
-        StringBuilder sb = new StringBuilder();
-        for(int i=start; i<= end; i++){
-            sb.append(versesMap.get(i));
-            if(i != end){
-                sb.append("\n");
-            }
-        }
 
-        return sb.toString();
+        return IntStream.rangeClosed(start, end)
+                .mapToObj(i -> versesMap.get(i))
+                .collect(Collectors.joining("\n"));
+
     }
 
     public String sing() {
