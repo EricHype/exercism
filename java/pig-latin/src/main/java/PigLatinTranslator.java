@@ -24,10 +24,6 @@ public class PigLatinTranslator {
             retVal.add(new String(letters) + "ay");
         }
 
-        if(retVal.size() < 2){
-            return retVal.get(0);
-        }
-
         return String.join(" ", retVal);
     }
 
