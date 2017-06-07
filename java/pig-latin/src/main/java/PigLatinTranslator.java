@@ -37,19 +37,15 @@ public class PigLatinTranslator {
     }
 
     public boolean isImmovable(char letter, char previousLetter, char nextLetter){
-
-        if(letter == 'x' && !isImmovable(nextLetter)){
-            return true;
-        }
-        if(letter == 'y' && !isImmovable(nextLetter)){
-            return true;
-        }
-
         switch(letter){
             case 'a': case 'e': case 'i': case 'o':
                 return true;
             case 'u':
                 return previousLetter != 'q';
+            case 'x':
+                return !isImmovable(nextLetter);
+            case 'y':
+                return !isImmovable(nextLetter);
             default:
                 return false;
         }
